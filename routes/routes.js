@@ -4,23 +4,8 @@ const bikes = require("../controllers/bikes");
 // const { authKey } = require("../config/auth");
 
 
-routes.get("/", (req, res) => {
-    let skatersInfo = [];
-    skaters.getAll(req, res)
-    .then( async (skList) => {
-        skatersInfo = await createSkArray(req, res, skList.listaSkaters)
-    })
-    .then( () => {
-        res.render("../views/index", 
-        {
-            layout: "index",
-            title: "Santiago Skate Park",
-            skts: skatersInfo,
-            showInicio: false,
-            showLogin: true,
-            showRegister: true
-        });
-    })
+routes.get("/monitor", (req, res) => {
+    res.sendFile(__dirname + "../public/monitor.html")
 });
 
 
