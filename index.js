@@ -11,23 +11,13 @@ const { routes } = require("./routes/routes");
 const { routesBikes } = require("./routes/routesAPIBikes")
 
  
-//views and partials engine
-// app.engine("hbs", exphbs({
-//     extname: "hbs",
-//     defaultLayout: 'index',
-//     layoutsDir: __dirname + "/views/layouts",
-//     partialsDir: __dirname + "/views/partials"
-// }));
-// app.set("view engine", "hbs");
-
 
 // middlewares
 app.use(express.static("./public/"));
-// app.use("/pics", express.static("./files/profilesPics"))
+
 
 app.use(cors());
-// app.use(express.json());
-// app.use(express.urlencoded({ extend: true }));
+
 app.use(morgan('common', {
     stream: fs.createWriteStream('./log/access.log', {flags: 'a'})
 }));
